@@ -4,7 +4,7 @@ import { SESSION_SECRET } from '$env/static/private';
 export const CLIENTAUTHINFO = 'client-auth-info';
 
 export const SESSION_CONFIG = {
-  maxAge: 6000,
+  maxAge: 60 * 60 * 24 * 30,
   secure: process.env.NODE_ENV === 'production',
   httpOnly: true,
   sameSite: 'lax' as const, // Compatible con firmas
