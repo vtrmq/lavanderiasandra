@@ -1,7 +1,9 @@
 <script lang="ts">
+import { enhance } from '$app/forms';
 import receiptText from '$lib/assets/svg/receipt-text.svg?raw';
 import chartLine from '$lib/assets/svg/chart-line.svg?raw';
 import usersRound from '$lib/assets/svg/users-round.svg?raw';
+import logout from '$lib/assets/svg/log-out.svg?raw';
 </script>
 
 <h1 class="bevan title">Opciones</h1>
@@ -18,6 +20,12 @@ import usersRound from '$lib/assets/svg/users-round.svg?raw';
     <div class="box-svg">{@html chartLine}</div>
     <span class="courier label">Estadísticas</span>
   </a>
+  <form method="POST" use:enhance>
+    <button class="link">
+      <div class="box-svg">{@html logout}</div>
+      <span class="courier label">Cerrar</span>
+    </button>
+  </form>
 </div>
 
 <style>
@@ -53,6 +61,7 @@ import usersRound from '$lib/assets/svg/users-round.svg?raw';
   gap: 0.5em;
   box-shadow: rgb(100 100 111 / 32%) 0px 7px 1px 0px;
   transition: 0.3s;
+  border: 1px solid #878787;
 }
 .link:hover {
   background: #ebf5ee;
