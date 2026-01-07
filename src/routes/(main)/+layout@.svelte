@@ -1,11 +1,17 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<main class="main">
+  {@render children()}
+</main>
 
-{@render children()}
+<style>
+.main {
+  background: #031f28;
+  background-size: cover;
+  background-image: url(/images/kristaps-ungurs.jpg);
+  background-attachment: fixed;
+  height: 100vh;
+}
+</style>

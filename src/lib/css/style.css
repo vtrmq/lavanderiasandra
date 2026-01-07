@@ -2,4 +2,44 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 18px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+:root {
+  --word-spacing: -5px;
+}
+body {
+  overscroll-behavior: none;
+}
+.main {
+  /*background: url('/images/kristaps-ungurs.jpg') no-repeat center center fixed;*/
+  background: #031f28;
+  background-size: cover;
+  background-image: url(/images/kristaps-ungurs.jpg);
+  background-attachment: fixed;
+}
+.admin {
+  background: #fff;
+}
+.bevan {
+  font-family: "Bevan", serif;
+  font-weight: 400;
+}
+.courier {
+  font-family: "Courier Prime", monospace;
+  word-spacing: var(--word-spacing);
+}
+
+@media (min-width: 700px) {
+  * {
+    font-size: 18px;
+  }
 }

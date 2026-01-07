@@ -16,7 +16,15 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+  "d1_databases": [
+		{
+			"binding": "DB",  // ← Nombre que usarás en tu código (env.DB)
+			"database_name": "lavanderia",  // ← Nombre que pusiste en el comando
+			"database_id": "0cf1e191-717c-4231-a5b9-e472a4c9d8c1",  // local ← Para desarrollo local
+			"preview_database_id": "local"
+		}
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

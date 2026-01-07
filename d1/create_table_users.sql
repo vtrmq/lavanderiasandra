@@ -1,0 +1,11 @@
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  laundry_id INTEGER DEFAULT 0,
+  admin_id INTEGER DEFAULT 0,
+  name TEXT NOT NULL,
+  phone INTEGER UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  profile TEXT CHECK(profile IN ('A','U')) NOT NULL,
+  blocked TEXT DEFAULT 'N' CHECK(blocked IN ('S','N')),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
