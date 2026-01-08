@@ -111,7 +111,7 @@ function handleInputSumGarment() {
 }
 
 async function handleSave() {
-  if (code.trim().length === 0) {
+  if (String(code).trim().length === 0) {
     toast?.action({message: 'Falta el número de celular', time: 3000, type:'failure'});
     return;
   }
@@ -145,7 +145,7 @@ async function handleSave() {
   }
 
   const info = {
-    code,
+    code: String(code),
     user_id: customer.user_id,
     name: customer.name,
     items: JSON.parse(JSON.stringify(items)),
@@ -153,7 +153,7 @@ async function handleSave() {
     price: sum,
     pay: Number(pay) === 0 ? 0 : pay
   }
-  //console.log(info)
+
   try {
     isSave = true;
     const response = await fetch('?/save', {

@@ -4,6 +4,7 @@ import receiptText from '$lib/assets/svg/receipt-text.svg?raw';
 import chartLine from '$lib/assets/svg/chart-line.svg?raw';
 import usersRound from '$lib/assets/svg/users-round.svg?raw';
 import logout from '$lib/assets/svg/log-out.svg?raw';
+import shirt from '$lib/assets/svg/shirt.svg?raw';
 </script>
 
 <h1 class="bevan title">Opciones</h1>
@@ -16,9 +17,13 @@ import logout from '$lib/assets/svg/log-out.svg?raw';
     <div class="box-svg">{@html usersRound}</div>
     <span class="courier label">Salida</span>
   </a>
+  <a class="link" href="/admin/couple">
+    <div class="box-svg">{@html shirt}</div>
+    <span class="courier label">Acoplar</span>
+  </a>
   <a class="link" href="/admin/statistics">
     <div class="box-svg">{@html chartLine}</div>
-    <span class="courier label">Estadísticas</span>
+    <span class="courier label">Estadística</span>
   </a>
   <form method="POST" use:enhance>
     <button class="link">
@@ -41,7 +46,7 @@ import logout from '$lib/assets/svg/log-out.svg?raw';
 }
 .wr-links {
   display: flex;
-  gap: 2em;
+  gap: 1em;
   width: 100%;
   justify-content: center;
   align-items: center;

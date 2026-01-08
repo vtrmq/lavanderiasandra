@@ -1,11 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 
-type Item = {
-  count: number;
-  garment: string;
-  price: number;
-};
+type Item = { count: number; garment: string; price: number };
 
 type Invoice = {
   invoice_id?: number;
@@ -21,7 +17,6 @@ type Invoice = {
 export const load: PageServerLoad = async ({ locals, platform, url }) => {
 
   if (!locals.user || locals.user.profile !== 'A') { throw redirect(303, '/'); }
-  //const adminId = locals.user.user_id;
   const laundryId = locals.user.laundry_id ?? '0';
   const code = url.searchParams.get('code') ?? '0';
 

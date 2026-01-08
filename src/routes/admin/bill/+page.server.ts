@@ -73,8 +73,11 @@ export const actions: Actions = {
       }
 
       const data: Data = await request.json();
+
       let userId = data.user_id;
-      const phone = data.code;
+      const code = data.code;
+      const phone = Number(code);
+      const password = String(code);
       const name = data.name;
       const items = JSON.stringify(data.items);
       const number_garment = data.number_garment;
@@ -86,9 +89,16 @@ export const actions: Actions = {
       const numeration: Numeration = result ?? { numeration_id: null, invoice_number: 0 };
 
       if (userId === null) {
-        const query_user = 'INSERT INTO users (laundry_id, admin_id, name, phone, password, profile, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)';
-        const result_user = await db.prepare(query_user).bind(laundryId, adminId, name, phone, phone, 'U', create_at).run();
-        userId = result_user.meta.last_row_id;
+        const response = await db.prepare('SELECT user_id, name FROM users WHERE laundry_id = ? AND password = ?').bind(laundryId, password).first();
+        const customer = response === null ? {user_id: null, name: null} : response;
+
+        if (customer.user_id === null) {
+          const query_user = 'INSERT INTO users (laundry_id, admin_id, name, phone, password, profile, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)';
+          const result_user = await db.prepare(query_user).bind(laundryId, adminId, name, phone, password, 'U', create_at).run();
+          userId = result_user.meta.last_row_id;
+        } else {
+          userId = customer.user_id as number;
+        }
       }
 
       const numerationInvoice = numeration.invoice_number + 1;

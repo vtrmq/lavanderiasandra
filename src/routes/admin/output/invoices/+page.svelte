@@ -86,6 +86,7 @@ function handleBack() {
     <Link href="/admin">[Inicio]</Link>
   </div>
   <div class="header">
+    <h1 class="courier">Factura: {invoice.invoice_number}</h1>
     <div class="courier">Cliente: {customer?.name}</div>
     <div class="courier">Fecha y hora: {fecha_hora.fecha} {fecha_hora.hora}</div>
   </div>
